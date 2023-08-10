@@ -24,20 +24,20 @@ For GNB Bank, understanding and predicting customer churn is critical for severa
 ## Data Understanding
 This project will use the churn modelling dataset. The dataset has 9970 rows, and 11 columns. The dataset has the following information which will give a better and insight of customer churning.
 
-**1.RowNumber:** A sequential number assigned to each row in the dataset.
-**2.CustomerId:** A unique identifier for each customer in the bank.
-**3.Surname:** The last name of the customer.
-**4.CreditScore:** The credit score of the customer, representing their creditworthiness.
-**5.Geography:** The geographical location of the customer (e.g., France, Spain, Germany).
-**6.Gender:** The gender of the customer (Male or Female).
-**7.Age:** The age of the customer.
-**8.Tenure:** The number of years the customer has been with the bank.
-**9.Balance:** The account balance of the customer.
-**10.NumOfProducts:** The number of bank products the customer has purchased.
-**11.HasCrCard:** Whether the customer has a credit card (1 if yes, 0 if no).
-**12.IsActiveMember:** Whether the customer is an active member (1 if yes, 0 if no).
-**13.EstimatedSalary:** The estimated salary of the customer.
-**14.Exited:** The target variable indicating whether the customer churned (1 if yes, 0 if no).
+* 1.RowNumber: A sequential number assigned to each row in the dataset.
+* 2.CustomerId: A unique identifier for each customer in the bank.
+* 3.Surname: The last name of the customer.
+* 4.CreditScore: The credit score of the customer, representing their creditworthiness.
+* 5.Geography: The geographical location of the customer (e.g., France, Spain, Germany).
+* 6.Gender: The gender of the customer (Male or Female).
+* 7.Age: The age of the customer.
+* 8.Tenure: The number of years the customer has been with the bank.
+* 9.Balance: The account balance of the customer.
+* 10.NumOfProducts: The number of bank products the customer has purchased.
+* 11.HasCrCard: Whether the customer has a credit card (1 if yes, 0 if no).
+* 12.IsActiveMember: Whether the customer is an active member (1 if yes, 0 if no).
+* 13.EstimatedSalary: The estimated salary of the customer.
+* 14.Exited: The target variable indicating whether the customer churned (1 if yes, 0 if no).
 
 
 ## Modeling
