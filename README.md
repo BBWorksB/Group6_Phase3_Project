@@ -1,106 +1,71 @@
 # Customer Churn Prediction for GNB Bank
 
-![Churn Prediction](image1.png)
+## Table of content
+<!-- TOC -->
 
-## Table of Contents
+- [Customer Churn Prediction for GNB Bank](#customer-churn-prediction-for-gnb-bank)
+    - [Introduction](#introduction)
+    - [Business Understanding](#Business-Understanding)
+    - [Data Understanding](#Data-Understanding)
+    - [Modelling](#Modelling)
+    - [Data Evaluation](#Data-Evaluation)
+    - [Conclusion](#conclusion)
+    - [Non Technical Presentation](#non-technical-presentation)
 
-- [Overview](#overview)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Data](#data)
-- [Methodology](#methodology)
-- [Observations](#observations)
-- [Models](#models)
-- [Results](#results)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+<!-- /TOC -->
 
-## Overview
-
-Welcome to the "Customer Churn Prediction for GNB Bank" project. In this endeavor, we delve into the crucial task of predicting customer churn for GNB Bank, a leading financial institution. Customer churn, the phenomenon of customers discontinuing their engagement with a service, has far-reaching implications for a bank's revenue, reputation, and market position. Our primary goal is to develop a robust predictive model that identifies customers at risk of churning, enabling GNB Bank to take proactive measures to retain these valuable customers.
+## Introduction
+GNB Bank is a leading financial institution, providing various banking and financial services to its customers. As with any bank, customer retention is crucial for maintaining a strong market presence and sustaining profitability. Identifying customers who are likely to churn is of paramount importance for GNB Bank to implement targeted strategies and retain valuable customers. In this bprojec, we will explore a dataset containing customer information, including demographics, banking behavior, and historical churn data. Our objective is to build a predictive model that can accurately predict customer churn and provide valuable insights to help GNB Bank enhance its customer retention efforts.
 
 ## Business Understanding
+For GNB Bank, understanding and predicting customer churn is critical for several reasons. First and foremost, customer churn impacts the bank's revenue and profitability. Acquiring new customers is more expensive than retaining existing ones, so preventing churn can lead to significant cost savings. Moreover, customer retention contributes to a positive reputation and strengthens the bank's position in the highly competitive financial industry. By leveraging machine learning techniques to predict customer churn, GNB Bank can proactively address the needs of at-risk customers, personalize their banking experience, and develop targeted marketing campaigns to foster long-term customer loyalty.
 
-Understanding customer churn's impact on GNB Bank's financial health is essential. By predicting churn, the bank can optimize resource allocation, enhance customer satisfaction, and foster long-term profitability.
+## Data Understanding
+This project will use the churn modelling dataset. The dataset has 9970 rows, and 11 columns. The dataset has the following information which will give a better and insight of customer churning.
 
-<<<<<<< HEAD
-* 1.RowNumber: A sequential number assigned to each row in the dataset.
-* 2.CustomerId: A unique identifier for each customer in the bank.
-* 3.Surname: The last name of the customer.
-* 4.CreditScore: The credit score of the customer, representing their creditworthiness.
-* 5.Geography: The geographical location of the customer (e.g., France, Spain, Germany).
-* 6.Gender: The gender of the customer (Male or Female).
-* 7.Age: The age of the customer.
-* 8.Tenure: The number of years the customer has been with the bank.
-* 9.Balance: The account balance of the customer.
-* 10.NumOfProducts: The number of bank products the customer has purchased.
-* 11.HasCrCard: Whether the customer has a credit card (1 if yes, 0 if no).
-* 12.IsActiveMember: Whether the customer is an active member (1 if yes, 0 if no).
-* 13.EstimatedSalary: The estimated salary of the customer.
-* 14.Exited: The target variable indicating whether the customer churned (1 if yes, 0 if no).
-=======
-## Usage
->>>>>>> fb87c3212e1e99702f4dba733bffd45aa6dd726d
+**1.RowNumber:** A sequential number assigned to each row in the dataset.
+**2.CustomerId:** A unique identifier for each customer in the bank.
+**3.Surname:** The last name of the customer.
+**4.CreditScore:** The credit score of the customer, representing their creditworthiness.
+**5.Geography:** The geographical location of the customer (e.g., France, Spain, Germany).
+**6.Gender:** The gender of the customer (Male or Female).
+**7.Age:** The age of the customer.
+**8.Tenure:** The number of years the customer has been with the bank.
+**9.Balance:** The account balance of the customer.
+**10.NumOfProducts:** The number of bank products the customer has purchased.
+**11.HasCrCard:** Whether the customer has a credit card (1 if yes, 0 if no).
+**12.IsActiveMember:** Whether the customer is an active member (1 if yes, 0 if no).
+**13.EstimatedSalary:** The estimated salary of the customer.
+**14.Exited:** The target variable indicating whether the customer churned (1 if yes, 0 if no).
 
-To use the trained churn prediction model, follow these steps:
 
-Ensure you have the required dependencies installed (see Installation section).
-Open a Jupyter Notebook or Python environment.
-Load the trained model using the provided code snippet.
-Provide input data in the required format and use the model to make predictions.
-Refer to the Jupyter Notebook provided in this repository for detailed usage examples.
+## Modeling
+In the GBN bank customer churn prediction project, various machine learning models were employed to predict customer churn. Here are the results:
 
-## Data Exploration and Preprocessing
+* Logistic Regression: Achieved an accuracy of 81.45%.
+* XGBoost Model: Initially achieved an accuracy of 86% after performing SMOTE (Synthetic Minority Over-sampling Technique) to balance the dataset.
+* GradientBoosting Model: Achieved an 86% accuracy after hyperparameter tuning.
+* RandomForest: Also reached an accuracy of 86% after hyperparameter tuning.
+* Decision Tree: Attained an accuracy of 78%.
+* K-Nearest Neighbors (KNN): Achieved an accuracy of 82%.
 
-The initial step involves preparing the data for analysis. This includes data cleaning, handling missing values, and encoding categorical variables. The dataset is carefully processed to ensure its quality and reliability.
+## Conclusion
+In this project, we tackled the problem of customer churn prediction for GNB Bank, a leading financial institution. Customer churn can have significant implications for a bank's revenue, profitability, and reputation. Our goal was to develop a predictive model that could accurately identify customers who are likely to churn, enabling the bank to take proactive measures to retain them.
 
-## Methodology
+We began by exploring a dataset containing customer information, including demographics, banking behavior, and historical churn data. After preprocessing the data, we built an XGBoost model to predict customer churn. The initial model achieved an accuracy of around 85.6%. However, due to the class imbalance present in the dataset, the model's performance was suboptimal in terms of precision, recall, and F1-score for the minority class (churned customers).
 
-The project follows these key steps:
+To address this class imbalance issue, we applied the Synthetic Minority Over-sampling Technique (SMOTE) to balance the dataset. The balanced XGBoost model demonstrated improved performance, achieving an accuracy of approximately 90.7%. The precision, recall, and F1-score for the churned customers also showed significant improvement, indicating that the model can better identify customers at risk of churn.
 
-**Data Preprocessing:** Cleaning the dataset, handling missing values, and encoding categorical variables.
+## Recommendations
+Based on the results of our churn prediction model, here are some recommendations for GNB Bank:
 
-**Exploratory Data Analysis (EDA):** Analyzing the dataset's characteristics, distributions, and relationships to gain insights into customer behavior.
+1.Targeted Retention Strategies: Utilize the predictions from the model to implement targeted retention strategies for customers identified as at-risk of churning. By understanding the key factors contributing to churn, the bank can tailor its offerings and incentives to address customer concerns and increase loyalty.
 
-**Feature Engineering:** Creating new features and selecting relevant ones to improve model performance.
+2.Personalized Customer Experience: Leverage the insights gained from the model to provide personalized experiences for customers. By understanding customer preferences and needs, the bank can offer relevant products and services that meet individual requirements, increasing customer satisfaction and reducing churn.
 
-**Model Building:** Implementing machine learning models, including Logistic Regression, Random Forest, Gradient Boosting, K Nearest Neighbors, XGBoost, and Decision Tree.
+3.Timely Engagement: Implement proactive engagement strategies for customers with a high churn likelihood. Reach out to these customers with timely offers, incentives, or support to address their concerns and enhance their overall experience with the bank.
 
-**Model Evaluation:** Assessing model performance using accuracy, precision, recall, F1-score, and other relevant metrics. Handling class imbalance through techniques like SMOTE.
+4.Feedback Loop: Continuously collect feedback from customers, especially those who have churned, to understand their reasons for leaving. This feedback can provide valuable insights into areas of improvement, enabling the bank to make informed decisions for enhancing its services.
 
-**Hyperparameter Tuning:** Optimizing model parameters using techniques like GridSearchCV.
-
-## Exploratory Data Analysis (EDA)
-
-EDA provides insights into the dataset's characteristics. The distribution of churn is visualized, uncovering patterns and trends. Correlations between features are examined, guiding modeling strategies.
-
-## Modeling Strategies
-
-Multiple machine learning algorithms are employed, justified by their relevance. Hyperparameters are fine-tuned for optimal performance. Imbalanced classes are tackled using the Synthetic Minority Over-sampling Technique (SMOTE).
-
-## Model Evaluation and Interpretation
-
-The models' effectiveness is assessed using an array of evaluation metrics. SHAP values facilitate understanding feature importance, enhancing model interpretability. Interpretations inform strategic decisions.
-
-## Recommendations for GNB Bank
-
-The model's insights serve as a foundation for retention strategies. Personalized experiences, timely engagement, and targeted initiatives are recommended to enhance customer loyalty and mitigate churn.
-
-## Observations
-
-Some key observations from the exploratory data analysis include:
-
-Female customers tend to churn more than male customers.
-Germany has a higher exit rate compared to France and Spain.
-Customers without credit cards have a higher churn rate.
-Inactive members have a higher churn rate.
-
-## Models
-
-The project evaluates various machine learning models, including Logistic Regression, Random Forest, Gradient Boosting, K Nearest Neighbors, XGBoost, and Decision Tree. The models are trained, tuned, and evaluated to select the best-performing one.
-
-## Results
-The best-performing model, based on accuracy and other metrics, is the Gradient Boosting classifier after hyperparameter tuning. This model provides valuable insights into predicting customer churn and can be deployed for real-world use.
-
-## Contributing
+## Non Technical Presentation
+To access the canvas slides click on the link [Presentation](https://docs.google.com/presentation/d/1ajg6cfOwB2MdpV1gWgzEFag6ig4nQKKjjr72dEZCPPk/edit?usp=sharing)
