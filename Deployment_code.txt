@@ -1,0 +1,66 @@
+# Create the pipe 
+encoded_features = ColumnTransformer(transformers=[
+        ("ohe", OneHotEncoder(categories="auto", handle_unknown="ignore"), ['Gender', 'Geography'])
+    ], remainder="passthrough")
+
+ pipe = Pipeline(steps=[
+        ("ohe", encoded_features),
+        ("scale", StandardScaler(),
+	 "model", GradientBoostingClassifier('learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 100)
+    ])
+
+# Save the pipe as a pickle file model.plk
+import joblib
+
+with open("model.plk", "wb") as f:
+	joblib.dump(pipe, f)
+
+# The main.py file defining the function for the API
+import json
+import joblib
+
+def Customer_churn_prediction( CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts,
+		     HasCrCard, IsActiveMember, EstimatedSalary,
+                    features):
+    """
+    Given the selected data columns predict Exited
+    """
+    
+    # Load the model from the file
+    with open("model.pkl", "rb") as f:
+        model = joblib.load(f)
+        
+    # Construct the 2D matrix of values that .predict is expecting
+    X = [[CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts,
+		     HasCrCard, IsActiveMember, EstimatedSalary]]
+    
+    data = pd.DataFrame(X)
+    data.columns = features
+    
+    # Get a list of predictions and select only 1st
+    predictions = model.predict(data)
+    prediction = predictions[0]
+    
+    return {"predicted_class": prediction}
+
+def predict(request):
+    """
+    `request` is an HTTP request object that will automatically be passed
+    in by Google Cloud Functions
+    
+    You can find all of its properties and methods here:
+    https://flask.palletsprojects.com/en/1.0.x/api/#flask.Request
+    """
+    # Get the request data from the user in JSON format
+    request_json = request.get_json()
+    
+
+    result = Customer_churn_prediction(**request_json)
+    
+    # Return the result as a string with JSON format
+    return json.dumps(result)
+
+# Requirements file contents
+
+scikit-learn==
+joblib==
